@@ -1,7 +1,8 @@
 package todo.unificado.controller;
 
+import todo.reinas.view.ReinasSetupView;
 import todo.unificado.view.MainFrame;
-import todo.disco.controller.HanoiController;
+import todo.disco.view.DiscoSetupView;
 import todo.caballo.controller.CaballoController;
 import todo.reinas.controller.ReinasController;
 
@@ -15,13 +16,13 @@ public class MainController {
     public void selectGame(String game) {
         switch (game) {
             case "hanoi":
-                new HanoiController().execute();
+                new DiscoSetupView();
                 break;
             case "caballo":
-                new CaballoController().execute();
+                new todo.caballo.view.CaballoSetupView();
                 break;
             case "reinas":
-                new ReinasController().execute();
+                new ReinasSetupView();
                 break;
             default:
                 System.out.println("Juego no reconocido");

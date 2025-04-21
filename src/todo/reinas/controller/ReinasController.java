@@ -1,10 +1,22 @@
 package todo.reinas.controller;
 
-import javax.swing.JOptionPane;
+import todo.reinas.model.TableroReinas;
+import todo.reinas.view.ReinasView;
+
+import javax.swing.*;
 
 public class ReinasController {
 
-    public void execute() {
-        JOptionPane.showMessageDialog(null, "Has elegido el Problema de las 8 Reinas");
+    public void execute(int dimension) {
+        TableroReinas tablero = new TableroReinas(dimension);
+        boolean exito = tablero.resolver();
+
+        if (exito) {
+            JOptionPane.showMessageDialog(null, "Las reinas han sido colocadas correctamente.");
+            new ReinasView(tablero.getMovimientos(), dimension);
+        } else {
+            JOptionPane.showMessageDialog(null, "No se pudo encontrar una solución para este tamaño de tablero.");
+        }
     }
 }
+
