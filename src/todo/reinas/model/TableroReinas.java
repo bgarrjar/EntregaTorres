@@ -1,29 +1,30 @@
+//Aqui el sistema busca una forma de colocar N reinas en el tablero
 package todo.reinas.model;
 
 import todo.modelo.Figura;
 import todo.modelo.Nodo;
 import todo.reinas.model.Reina;
 
-import java.util.ArrayList;
+import java.util.ArrayList; //Para guardar los movimientos
 import java.util.List;
 
 public class TableroReinas {
-    private int dimension;
-    private int[] posiciones; // posiciones[fila] = columna donde está la reina
-    private List<Nodo> movimientos;
+    private int dimension; //Tamaño del tablero
+    private int[] posiciones; // Guarda la columna donde está la reina en cada fila
+    private List<Nodo> movimientos; // Lista de movimientos de las reinas
 
-    public TableroReinas(int dimension) {
+    public TableroReinas(int dimension) { //Constructor
         this.dimension = dimension;
-        this.posiciones = new int[dimension];
-        this.movimientos = new ArrayList<>();
+        this.posiciones = new int[dimension]; //Crea un array de posiciones
+        this.movimientos = new ArrayList<>(); //Crea una lista vacía de movimientos
     }
 
     public boolean resolver() {
         return colocarReina(0);
-    }
+    } //Método que coloca las reinas
 
     private boolean colocarReina(int fila) {
-        if (fila == dimension) {
+        if (fila == dimension) { //Si se han colocado todas las reinas se ha encontrado una solución
             generarMovimientos();
             return true;
         }
